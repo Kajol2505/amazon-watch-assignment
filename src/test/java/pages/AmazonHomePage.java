@@ -17,9 +17,13 @@ this.page=page;
 
 public void open(){
 
-System.out.println("STEP 2 → Opening Amazon");
+System.out.println(
+"STEP 2 → Opening Amazon"
+);
 
-page.navigate("https://amazon.in");
+page.navigate(
+"https://amazon.in"
+);
 
 page.waitForTimeout(3000);
 
@@ -29,7 +33,9 @@ page.waitForTimeout(3000);
 
 public void searchWatch(){
 
-System.out.println("STEP 3 → Searching Wrist Watches");
+System.out.println(
+"STEP 3 → Searching Wrist Watches"
+);
 
 page.locator(
 "#twotabsearchtextbox"
@@ -47,7 +53,9 @@ page.keyboard()
 
 page.waitForTimeout(5000);
 
-System.out.println("Search Completed");
+System.out.println(
+"Search Completed"
+);
 
 }
 

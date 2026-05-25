@@ -12,11 +12,14 @@ public static Browser browser;
 
 public static Page page;
 
+
+
 public static void setup(){
 
 System.out.println("STEP 1 → Launching Browser");
 
-playwright=Playwright.create();
+playwright=
+Playwright.create();
 
 browser=
 playwright.chromium()
@@ -24,7 +27,7 @@ playwright.chromium()
 new BrowserType
 .LaunchOptions()
 .setHeadless(false)
-.setSlowMo(1500) // slows actions
+.setSlowMo(1500)
 );
 
 page=
