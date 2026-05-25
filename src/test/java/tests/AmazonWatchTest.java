@@ -1,4 +1,3 @@
-//Purpose: Actual test execution
 package tests;
 
 import base.BaseTest;
@@ -7,12 +6,14 @@ import pages.*;
 
 import org.junit.jupiter.api.*;
 
+
 public class AmazonWatchTest
 extends BaseTest{
 
+
 @BeforeEach
 
-public void start(){
+void start(){
 
 setup();
 
@@ -22,25 +23,46 @@ setup();
 
 @Test
 
-public void runTest(){
+void runTest(){
 
-System.out.println(
-"START EXECUTION"
+
+AmazonHomePage home =
+
+new AmazonHomePage(
+page
 );
 
-AmazonHomePage home=
-new AmazonHomePage(page);
 
-WatchResultPage watch=
-new WatchResultPage(page);
+
+WatchPage watch =
+
+new WatchPage(
+page
+);
+
+
+
+System.out.println(
+"STEP 1 - Open Amazon"
+);
 
 home.open();
 
+
+
+System.out.println(
+"STEP 2 - Search"
+);
+
 home.searchWatch();
+
+
 
 watch.applyFilters();
 
-watch.printDetails();
+
+watch.openFirstProduct();
+
 
 }
 
@@ -48,7 +70,7 @@ watch.printDetails();
 
 @AfterEach
 
-public void end(){
+void end(){
 
 tearDown();
 

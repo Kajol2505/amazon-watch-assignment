@@ -1,50 +1,44 @@
-//Responsible for: Launch browser ,Create page ,close browser
-
 package base;
 
 import com.microsoft.playwright.*;
 
 public class BaseTest {
 
-public static Playwright playwright;
+protected Playwright playwright;
 
-public static Browser browser;
+protected Browser browser;
 
-public static Page page;
+protected Page page;
 
 
+public void setup(){
 
-public static void setup(){
-
-System.out.println("STEP 1 → Launching Browser");
-
-playwright=
+playwright =
 Playwright.create();
 
-browser=
+browser =
 playwright.chromium()
 .launch(
+
 new BrowserType
 .LaunchOptions()
 .setHeadless(false)
-.setSlowMo(1500)
+
 );
 
-page=
+page =
 browser.newPage();
-
-System.out.println("Browser Opened");
 
 }
 
 
 
-public static void tearDown(){
+public void tearDown(){
 
-System.out.println("Closing Browser");
-
+if(browser!=null)
 browser.close();
 
+if(playwright!=null)
 playwright.close();
 
 }
